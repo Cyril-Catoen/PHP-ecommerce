@@ -44,9 +44,11 @@
         'category'       => 'Fours',
         'publishedAt'    => new DateTime('2025-03-12')
     ],
-]
+];
 
-function createProduct ($title, $price, $promotionPrice, $image, $category){
+function createProduct ($title, $price, $promotionPrice, $image, $category) {
+    global $products;
+
     $newProduct = [
         "title" => $title,
         "price" => $price,
@@ -55,13 +57,12 @@ function createProduct ($title, $price, $promotionPrice, $image, $category){
         "isPublished" => true,
         "category" => $category,
         "publishedAt" => new DateTime()
-        
     ];
 
-    global $products;
+    array_push($products, $newProduct);
 
-    array_push($products, $newProduct);}
-    ?>
+   }
+    
 
 
 ?>

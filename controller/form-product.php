@@ -2,13 +2,14 @@
 
 require_once('../config.php');
 require_once('../view/form-product-view.php');
+require_once('../model/product-repository.php');
 
 ?>
 
 <?php 
 
 $message = null;
-var_dump($_POST)
+var_dump($_POST);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -18,8 +19,8 @@ if (isset($_POST["titleToAdd"]) &&
 		isset($_POST["imageToAdd"]) &&
         isset($_POST["categoryToAdd"]) &&
 		strlen($_POST["titleToAdd"]) > 3 &&
-		is_numeric($_POST["priceToAdd"]) > &&
-        is_numeric($_POST["promotionpriceToAdd"]) > &&
+		is_numeric($_POST["priceToAdd"]) &&
+        is_numeric($_POST["promotionpriceToAdd"]) &&
 		strlen($_POST["imageToAdd"]) > 5 &&
         strlen($_POST["categoryToAdd"]) > 3
 		) {

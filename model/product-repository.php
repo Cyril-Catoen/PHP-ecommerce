@@ -46,6 +46,43 @@
     ],
 ];
 
+function getProducts () {
+    global $products;
+
+    return $products;
+}
+
+function getPublishedProducts($sortMethod = null) {
+    global $products;
+    
+    // Tableau pour stocker les produits publiés
+    $publishedProducts = [];
+
+    // On parcourt tous les produits
+    foreach ($products as $product) {
+        if ($product['isPublished'] == true) {
+            array_push($publishedProducts, $product);  // Ajout du produit dans le tableau des produits publiés
+        }
+    }
+
+    // Si une méthode de tri est définie, on trie les produits
+    if ($sortMethod == 'Date') {
+        usort($publishedProducts, function ($a, $b) {
+            if ($a['publishedAt'] == $b['publishedAt']) {
+                return 0;
+            }
+            return ($a['publishedAt'] > $b['publishedAt']) ? -1 : 1;  // Tri du plus récent au plus ancien
+        });
+    } elseif ($sortMethod == 'Titre') {
+        usort($publishedProducts, function ($a, $b) {
+            return strcmp(strtolower($a['title']), strtolower($b['title'])); // Tri alphabétique insensible à la casse par titre
+        });
+    }
+
+    return $publishedProducts;
+}
+
+
 function createProduct ($title, $price, $promotionPrice, $image, $category) {
     global $products;
 

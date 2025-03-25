@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         isset($_POST["priceToAdd"]) &&
         isset($_POST["promotionpriceToAdd"]) &&
         isset($_POST["imageToAdd"]) &&
-        isset($_POST["categoryToAdd"])) {
+        isset($_POST["sortToApply"])) {
 
         // Validation du titre
         if (strlen($_POST["titleToAdd"]) <= 5) {
@@ -40,14 +40,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors[] = "L'URL de l'image doit contenir plus de 5 caractères.";
         }
 
+       // Liste des catégories valides
+        $validCategories = ["Réfrigérateur", "Lave-Linge", "Lave-vaisselle", "Micro-ondes", "Fours"];
+
         // Validation de la catégorie
-        if (strlen($_POST["categoryToAdd"]) <= 3) {
-            $errors[] = "La catégorie doit contenir plus de 3 caractères.";
+        if (!in_array($_POST["sortToApply"], $validCategories)) {
+        $errors[] = "Veuillez choisir une catégorie valide.";
         }
 
         // Si aucune erreur n'a été détectée, on crée le produit
         if (empty($errors)) {
-            createProduct($_POST["titleToAdd"], $_POST["priceToAdd"], $_POST["promotionpriceToAdd"], $_POST["imageToAdd"], $_POST["categoryToAdd"]);
+            createProduct($_POST["titleToAdd"], $_POST["priceToAdd"], $_POST["promotionpriceToAdd"], $_POST["imageToAdd"], $_POST["sortToApply"]);
             $message = "Produit créé avec succès.";
         } else {
             // Affichage des erreurs

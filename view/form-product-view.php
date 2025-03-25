@@ -22,7 +22,14 @@ require_once('partial/header.php');
         </div>
 
         <div class="w80">
-                <input type="text" name="categoryToAdd" placeholder="Saisissez la catégorie de votre produit">
+                <select name="sortToApply">
+                        <option selected disabled>Choisissez la catégorie</option>
+                        <option value="Réfrigérateur">Réfrigérateur</option>
+                        <option value="Lave-Linge">Lave-Linge</option>
+                        <option value="Lave-vaisselle">Lave-vaisselle</option>
+                        <option value="Micro-ondes">Micro-ondes</option>
+                        <option value="Fours">Fours</option>
+                </select>
         </div>
 
         <input id="submit" type="submit">

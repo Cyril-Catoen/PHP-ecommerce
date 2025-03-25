@@ -1,5 +1,5 @@
 <?php $products = [
-    [
+    0 => [
         'title'          => 'Réfrigérateur Samsung',
         'price'          => 499.99,
         'promotionPrice' => 449.99,
@@ -8,7 +8,7 @@
         'category'       => 'Réfrigérateur',
         'publishedAt'    => new DateTime('2025-03-10')
     ],
-    [
+    1 => [
         'title'          => 'Machine à laver LG',
         'price'          => 399.99,
         'promotionPrice' => 349.99,
@@ -17,7 +17,7 @@
         'category'       => 'Lave-linge',
         'publishedAt'    => new DateTime('2025-02-28')
     ],
-    [
+    2 => [
         'title'          => 'Lave-vaisselle Bosch',
         'price'          => 299.99,
         'promotionPrice' => 279.99,
@@ -26,7 +26,7 @@
         'category'       => 'Lave-vaisselle',
         'publishedAt'    => new DateTime('2025-01-15')
     ],
-    [
+    3 => [
         'title'          => 'Micro-ondes Whirlpool',
         'price'          => 129.90,
         'promotionPrice' => 99.90,
@@ -35,7 +35,7 @@
         'category'       => 'Micro-ondes',
         'publishedAt'    => new DateTime('2025-03-01')
     ],
-    [
+    4 => [
         'title'          => 'Four encastrable Siemens',
         'price'          => 699.99,
         'promotionPrice' => 649.99,
@@ -59,9 +59,9 @@ function getPublishedProducts($sortMethod = null) {
     $publishedProducts = [];
 
     // On parcourt tous les produits
-    foreach ($products as $product) {
+    foreach ($products as $index => $product) {
         if ($product['isPublished'] == true) {
-            array_push($publishedProducts, $product);  // Ajout du produit dans le tableau des produits publiés
+            $publishedProducts[$index] = $product;  // Ajout du produit dans le tableau des produits publiés avec son index
         }
     }
 

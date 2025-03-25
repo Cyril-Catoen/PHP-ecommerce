@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         isset($_POST["priceToAdd"]) &&
         isset($_POST["promotionpriceToAdd"]) &&
         isset($_POST["imageToAdd"]) &&
-        isset($_POST["sortToApply"])) {
+        isset($_POST["categoryToAdd"])) {
 
         // Validation du titre
         if (strlen($_POST["titleToAdd"]) <= 5) {
@@ -44,13 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $validCategories = ["Réfrigérateur", "Lave-Linge", "Lave-vaisselle", "Micro-ondes", "Fours"];
 
         // Validation de la catégorie
-        if (!in_array($_POST["sortToApply"], $validCategories)) {
+        if (!in_array($_POST["categoryToAdd"], $validCategories)) {
         $errors[] = "Veuillez choisir une catégorie valide.";
         }
 
         // Si aucune erreur n'a été détectée, on crée le produit
         if (empty($errors)) {
-            createProduct($_POST["titleToAdd"], $_POST["priceToAdd"], $_POST["promotionpriceToAdd"], $_POST["imageToAdd"], $_POST["sortToApply"]);
+            createProduct($_POST["titleToAdd"], $_POST["priceToAdd"], $_POST["promotionpriceToAdd"], $_POST["imageToAdd"], $_POST["categoryToAdd"]);
             $message = "Produit créé avec succès.";
         } else {
             // Affichage des erreurs

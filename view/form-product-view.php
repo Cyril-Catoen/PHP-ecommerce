@@ -22,7 +22,7 @@ require_once('partial/header.php');
         </div>
 
         <div class="w80">
-                <select name="sortToApply">
+                <select name="categoryToAdd">
                         <option selected disabled>Choisissez la catégorie</option>
                         <option value="Réfrigérateur">Réfrigérateur</option>
                         <option value="Lave-Linge">Lave-Linge</option>

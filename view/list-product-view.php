@@ -23,7 +23,7 @@ require_once('partial/header.php');
 <h2>Liste des produits commercialisés :</h2>
 <section>
 <?php // Ensuite, tu peux afficher la liste des produits publiés
-foreach ($publishedProducts as $product) {
+foreach ($products as $index => $product) {
     ?>
     <article>
         <h2><?php echo $product['title'] ?></h2>
@@ -32,6 +32,7 @@ foreach ($publishedProducts as $product) {
         <img src="<?php echo $product['image'] ?>" alt="">
         <p class="ftwght-bold"><?php echo $product['category'] ?></p>
         <p>Publié le : <?php echo $product['publishedAt']->format('Y-m-d') ?></p>
+        <a href="show-product-controller.php?index=<?php echo $index; ?>">Voir le produit</a>
     </article>
 <?php } ?>
 </section>

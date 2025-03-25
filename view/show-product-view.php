@@ -4,20 +4,32 @@ require_once('partial/header.php');
 
 ?>
 
-<main>
+<!-- <main> -->
 
-<?php if ($firstProduct): ?>
+<?php // if ($showProduct): ?>
+    <!-- <article>
+        <h2><?php // echo htmlspecialchars($showProduct['title']); ?></h2>
+        <p>Prix : <?php // echo number_format($showProduct['price'], 2); ?> €</p>
+        <p>Promo : <?php // echo number_format($showProduct['promotionPrice'], 2); ?> €</p>
+        <img src="<?php // echo htmlspecialchars($showProduct['image']); ?>" alt="Image du produit" width="200">
+        <p>Catégorie : <?php // echo htmlspecialchars($showProduct['category']); ?></p>
+        <p>Publié le : <?php // echo $showProduct['publishedAt']->format('Y-m-d'); ?></p> -->
+    <!-- </article> -->
+<?php // else: ?> 
+    <!-- <p>Aucun produit disponible.</p> -->
+<!-- <?php // endif; ?> -->
+
+<!-- </main> -->
+
+<main>
     <article>
-        <h2><?php echo htmlspecialchars($firstProduct['title']); ?></h2>
-        <p>Prix : <?php echo number_format($firstProduct['price'], 2); ?> €</p>
-        <p>Promo : <?php echo number_format($firstProduct['promotionPrice'], 2); ?> €</p>
-        <img src="<?php echo htmlspecialchars($firstProduct['image']); ?>" alt="Image du produit" width="200">
-        <p>Catégorie : <?php echo htmlspecialchars($firstProduct['category']); ?></p>
-        <p>Publié le : <?php echo $firstProduct['publishedAt']->format('Y-m-d'); ?></p>
+    <h2><?php echo htmlspecialchars($showProduct['title']); ?></h2>
+        <p>Prix : <?php echo number_format($showProduct['price'], 2); ?> €</p>
+        <p>Promo : <?php echo number_format($showProduct['promotionPrice'], 2); ?> €</p>
+        <img src="<?php echo htmlspecialchars($showProduct['image']); ?>" alt="Image du produit" width="200">
+        <p>Catégorie : <?php echo htmlspecialchars($showProduct['category']); ?></p>
+        <p>Publié le : <?php echo $showProduct['publishedAt']->format('Y-m-d'); ?></p>
     </article>
-<?php else: ?>
-    <p>Aucun produit disponible.</p>
-<?php endif; ?>
 
 </main>
 
